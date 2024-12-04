@@ -1,0 +1,115 @@
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <title>Web Stories Example</title>
+  <link rel="canonical" href="self.html">
+  
+  <!-- AMP boilerplate -->
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+
+  <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+      }
+      @-moz-keyframes -amp-start {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+      }
+      @-ms-keyframes -amp-start {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+      }
+      @keyframes -amp-start {
+        from { visibility: hidden; }
+        to { visibility: visible; }
+      }
+  </style>
+  
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none;
+      }
+    </style>
+  </noscript>
+
+  <style amp-custom>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      amp-story {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: white;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+      }
+
+      amp-story-page {
+        background-color: #000;
+        width: 100%; /* Full width */
+        height: 100vh; /* Full height */
+        padding: 0;
+      }
+
+      h1, p {
+        text-align: center;
+        color: #fff;
+        margin: 0;
+      }
+
+      amp-img {
+        object-fit: cover; /* Ensures the image fills the screen without distortion */
+      }
+
+      amp-story-grid-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+  </style>
+</head>
+<body>
+  <amp-story standalone title="Web Stories Example" publisher="Your Publisher Name" publisher-logo-src="https://example.com/logo.png" poster-portrait-src="https://example.com/poster.jpg">
+
+    <!-- Page 1 -->
+    <amp-story-page id="page1">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj-PQs8sx7WtKYYQexwRtjfEp_FKeo2A3bV2P61r5ammU-eDJzvD-qTRZmoQRJQIMHEiCAQn0Q45BWZGx8x1HIJMaR4CZNiESmXQQ3lchh3qZBu2QZnytk-Y0G0XlWVEROQ_I3oCNjp_A7u3m0_ZCcWrfiDqHCLCJMI2GXn9D8-oP4cA6pY8tYU6z4BCo/s320/4.png" width="720" height="1280" layout="responsive" alt="First Image"></amp-img>
+      </amp-story-grid-layer>
+      <amp-story-grid-layer template="vertical">
+        <h1>Title for Page 1</h1>
+        <p>Description for Page 1.</p>
+      </amp-story-grid-layer>
+    </amp-story-page>
+
+    <!-- Page 2 -->
+    <amp-story-page id="page2">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj-PQs8sx7WtKYYQexwRtjfEp_FKeo2A3bV2P61r5ammU-eDJzvD-qTRZmoQRJQIMHEiCAQn0Q45BWZGx8x1HIJMaR4CZNiESmXQQ3lchh3qZBu2QZnytk-Y0G0XlWVEROQ_I3oCNjp_A7u3m0_ZCcWrfiDqHCLCJMI2GXn9D8-oP4cA6pY8tYU6z4BCo/s320/4.png" width="720" height="1280" layout="responsive" alt="Second Image"></amp-img>
+      </amp-story-grid-layer>
+      <amp-story-grid-layer template="vertical">
+        <h1>Title for Page 2</h1>
+        <p>Description for Page 2.</p>
+      </amp-story-grid-layer>
+    </amp-story-page>
+
+  </amp-story>
+</body>
+</html>

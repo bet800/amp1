@@ -4,46 +4,16 @@
   <meta charset="utf-8">
   <title>Web Stories Example</title>
   <link rel="canonical" href="self.html">
-  
+
+  <!-- Required meta viewport for responsiveness -->
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,viewport-fit=cover">
+
   <!-- AMP boilerplate -->
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
 
-  <style amp-boilerplate>
-      body {
-        -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-        -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-        -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-        animation: -amp-start 8s steps(1,end) 0s 1 normal both;
-      }
-      @-webkit-keyframes -amp-start {
-        from { visibility: hidden; }
-        to { visibility: visible; }
-      }
-      @-moz-keyframes -amp-start {
-        from { visibility: hidden; }
-        to { visibility: visible; }
-      }
-      @-ms-keyframes -amp-start {
-        from { visibility: hidden; }
-        to { visibility: visible; }
-      }
-      @keyframes -amp-start {
-        from { visibility: hidden; }
-        to { visibility: visible; }
-      }
-  </style>
-  
-  <noscript>
-    <style amp-boilerplate>
-      body {
-        -webkit-animation: none;
-        -moz-animation: none;
-        -ms-animation: none;
-        animation: none;
-      }
-    </style>
-  </noscript>
+      <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
 
   <style amp-custom>
       body {
@@ -56,24 +26,65 @@
         background-color: #000;
         color: white;
         width: 100%;
-        height: 100vh; /* Full viewport height */
+        height: 100vh;
       }
 
       amp-story-page {
         background-color: #000;
-        width: 100%; /* Full width */
-        height: 100vh; /* Full height */
+        width: 100%;
+        height: 100vh;
         padding: 0;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
       }
 
       h1, p {
         text-align: center;
-        color: #fff;
         margin: 0;
       }
 
+      @keyframes zoom-in {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+      }
+
       amp-img {
-        object-fit: cover; /* Ensures the image fills the screen without distortion */
+        animation: zoom-in 3s ease-in-out forwards;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .title-container {
+        position: absolute;
+        top: 10%;
+        left: 3%;
+        right: 0%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 50px;
+        text-align: left;
+        color: yellow;
+        z-index: 1;
+        width: 95%;
+        box-sizing: border-box;
+      }
+
+      .middle-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 50px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        z-index: 1;
+        width: 90%;
       }
 
       amp-story-grid-layer {
@@ -83,6 +94,44 @@
         right: 0;
         bottom: 0;
       }
+
+      .hand-arrow {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        z-index: 2;
+        font-size: 60px;
+        color: white;
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.2); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      .left-bottom-text {
+        position: absolute;
+        bottom: 6%;
+        left: 0.7%;
+        z-index: 12;
+        font-size: 27px;
+        font-weight: bold;
+        color: white;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
+      }
+
+      .clickable-link {
+        color: #ffff;
+        text-decoration: ;
+      }
+
+      #page7 .hand-arrow {
+        display: none;
+      }
   </style>
 </head>
 <body>
@@ -91,25 +140,155 @@
     <!-- Page 1 -->
     <amp-story-page id="page1">
       <amp-story-grid-layer template="fill">
-        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj-PQs8sx7WtKYYQexwRtjfEp_FKeo2A3bV2P61r5ammU-eDJzvD-qTRZmoQRJQIMHEiCAQn0Q45BWZGx8x1HIJMaR4CZNiESmXQQ3lchh3qZBu2QZnytk-Y0G0XlWVEROQ_I3oCNjp_A7u3m0_ZCcWrfiDqHCLCJMI2GXn9D8-oP4cA6pY8tYU6z4BCo/s320/4.png" width="720" height="1280" layout="responsive" alt="First Image"></amp-img>
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4EIkqpOx6mFrIs2YxTMBsOS1GjqdAv_SEp1CaEEv_ZTnRYhOUKSoOdZz6o5nmswYS7dm7pCjZ4EO6A6XXxw0YONXyweByowE_MdRpfN9fmwCWnFhb8E_eNfmTP3EGc5L5TrWOg_V4wU3SmhgFVxH8oE_VrF4zzbqgzV9o4GzlYDprpVrcrwX4Qhqs_4a3/s1152/From%20Zero%20to%20Millions%20The%20Untold%20Story%20of%20Boston%20Materials%20(1).gif" 
+          width="1920" 
+          height="1080" 
+          layout="responsive" 
+          alt="First HD Image">
+        </amp-img>
       </amp-story-grid-layer>
+
       <amp-story-grid-layer template="vertical">
-        <h1>Title for Page 1</h1>
-        <p>Description for Page 1.</p>
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="100" 
+          height="30" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 10%; left: 3%; border-radius: 5px;">
+        </amp-img>
       </amp-story-grid-layer>
     </amp-story-page>
-
-    <!-- Page 2 -->
+    
+     <!-- Page 2 -->
     <amp-story-page id="page2">
       <amp-story-grid-layer template="fill">
-        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj-PQs8sx7WtKYYQexwRtjfEp_FKeo2A3bV2P61r5ammU-eDJzvD-qTRZmoQRJQIMHEiCAQn0Q45BWZGx8x1HIJMaR4CZNiESmXQQ3lchh3qZBu2QZnytk-Y0G0XlWVEROQ_I3oCNjp_A7u3m0_ZCcWrfiDqHCLCJMI2GXn9D8-oP4cA6pY8tYU6z4BCo/s320/4.png" width="720" height="1280" layout="responsive" alt="Second Image"></amp-img>
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgy7ov77wV5gRITgg8FtN_MiVe3ICmKIeDLbinTttfKwir6jUfRuKAp5LDpMReTpgi-m64qAITKX2y7ewPK5br-IDqH1UPuSut2fLPc7YCTRUVDYYPAWMyNgj4iz6Eofc6xCOLrBbbNl0PZXk174lY68B6ZOc7OKW0nDjpr4Gbo0ZYPoqjZNjE82wiN4sQ/s1152/From%20Zero%20to%20Millions%20The%20Untold%20Story%20of%20Boston%20Materials%20(6).gif" 
+          width="1920" 
+          height="1080" 
+          layout="responsive" 
+          alt="First HD Image">
+        </amp-img>
       </amp-story-grid-layer>
+
       <amp-story-grid-layer template="vertical">
-        <h1>Title for Page 2</h1>
-        <p>Description for Page 2.</p>
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="100" 
+          height="30" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 10%; left: 3%; border-radius: 5px;">
+        </amp-img>
       </amp-story-grid-layer>
     </amp-story-page>
+    
+    
+    <!-- Page 3 -->
+    <amp-story-page id="page3">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHCNFEzGGL3kF0ZGz-52qTG85tiQ-8LUuob2wEwt1IpIu9Nx2mIfwg7QG1FiMLFNTnD-x2_hlcdPDxGJn6IKu7NA5HgPej5rlWte3baBYfts_-08tzpb1X6ZfPKjpnlewqNiW1UaDmwMBG-LyNH2ywoTvHhNNCIo0z77EILDFvv-Tglk_7ieCrI0SMhLw/s1152/From%20Zero%20to%20Millions%20The%20Untold%20Story%20of%20Boston%20Materials%20(7).gif" 
+          width="1920" 
+          height="1080" 
+          layout="responsive" 
+          alt="First HD Image">
+        </amp-img>
+      </amp-story-grid-layer>
 
+      <amp-story-grid-layer template="vertical">
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="100" 
+          height="30" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 10%; left: 3%; border-radius: 5px;">
+        </amp-img>
+      </amp-story-grid-layer>
+    </amp-story-page>
+    
+    
+    
+    <!-- Page 4 -->
+    <amp-story-page id="page4">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEha4LfR2E8CZsA8NAhovF1kpKuWmJjl_PRcn9rQCY0ssxdTxL4_zu7wCKT9kWdyxuwvyXE60pmFA8-mCCWpBIjY1fOXgoylRHLhF6aYs9Sbxu9TgUAJsH1NJs_a8eO7E6yiAFvvDNbDdbij4Zg7hVYcPdLQA0Vz-ldtbYvbWKLBC_aTNNPDZvYjzzfE7LA/s1152/From%20Zero%20to%20Millions%20The%20Untold%20Story%20of%20Boston%20Materials%20(8).gif" 
+          width="1920" 
+          height="1080" 
+          layout="responsive" 
+          alt="First HD Image">
+        </amp-img>
+      </amp-story-grid-layer>
+
+      <amp-story-grid-layer template="vertical">
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="100" 
+          height="30" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 10%; left: 3%; border-radius: 5px;">
+        </amp-img>
+      </amp-story-grid-layer>
+    </amp-story-page>
+    
+    
+    <!-- Page 5 -->
+    <amp-story-page id="page5">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2j4TBfmNGMM3Ve5z0Hd6b5CRNOTrW854ymo9LufqWWN3KxOLj_WBHBT841VdgdatjJ1xnCAWVESjXKo53C5TA67wf_0Oen00Gcn-DVrBRJF2rwpbSDyRLL3E0dQ7FoDsSaWp9WmtREGE-p_FUTJLPXDR49ZQ3i5IuQUDBbB7KECnoxcQmZhZL6_HfN90/s1152/From%20Zero%20to%20Millions%20The%20Untold%20Story%20of%20Boston%20Materials%20(9).gif" 
+          width="1920" 
+          height="1080" 
+          layout="responsive" 
+          alt="First HD Image">
+        </amp-img>
+      </amp-story-grid-layer>
+
+      <amp-story-grid-layer template="vertical">
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="100" 
+          height="30" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 10%; left: 3%; border-radius: 5px;">
+        </amp-img>
+      </amp-story-grid-layer>
+    </amp-story-page>
+    
+    
+
+    <!-- Page 6 -->
+    <amp-story-page id="page6">
+      <amp-story-grid-layer template="fill">
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1CY6gIBXrmL4lvooabcQ1rBSfP-Q6p1gckbDhyphenhyphendiGVXXJY6FZxxxSK2Ue9lPeZI1H3Sm-VCNl4uamRYrphp3jPlROU2V2Vps-f9CArSYApSXxZf6-aBfoTqq4w_xXEXWEb32685guCFSG1siacpmqShhiEyCvNtq2X-HILsrcNIPrrihWYxo0MgK1ZS0/s6240/pexels-cottonbro-5854040.jpg" width="1920" height="1080" layout="responsive" alt="Sixth HD Image"></amp-img>
+      </amp-story-grid-layer>
+
+      <amp-story-grid-layer template="vertical">
+        <div class="title-container">
+          <h1>Want the full story?</h1>
+        </div>
+      </amp-story-grid-layer>
+      <amp-story-grid-layer template="vertical">
+        <!-- Bottom left logo -->
+        <amp-img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS1lOywFPiSifoTLcckB3MM166Opm0isBNpCd3THwq4ZSgVoRTsEWDIUKLdc7CfIfaCuz06kUNc7Z61XAFCwLBd0hXOb7PqCtS4BLUpUSw6OCgyI3xkKVeoStnRgxEDSer4rhxkX8SjkLjM7RbKhSM_vXtMEIozKTKHiDLzdjhYD13_2l-nrDlQIQv0P-1/s454/Business%20CRAB%20(3).png" 
+          width="170" 
+          height="60" 
+          layout="fixed" 
+          alt="Business Crab Logo"
+          style="position: fixed; bottom: 63%; left: 25%; border-radius: 5px;">
+        </amp-img>
+      </amp-story-grid-layer>
+
+      <amp-story-grid-layer template="vertical">
+        <div class="middle-text">
+          <a href="https://www.businesscrab.com" class="clickable-link">Read In Detail</a>
+        </div>
+      </amp-story-grid-layer>
+      
+      
+    </amp-story-page>
   </amp-story>
 </body>
 </html>
+
